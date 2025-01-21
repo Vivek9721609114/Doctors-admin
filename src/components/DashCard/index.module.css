@@ -1,0 +1,32 @@
+.dashCard{
+    margin-top: 20px;
+    padding: 0 12px;
+    width: auto;
+}
+
+.dashCard .dash_container{
+    box-shadow: 0 0 3px #3c485826;
+    padding: 1.5rem ;
+    border-radius: 10px ;
+}
+
+.dash_container .content{
+    display: flex;
+    align-items: center;
+}
+
+.content .content_left{
+    align-items: center;
+    display: flex;
+    height: 65px;
+    justify-content: center;
+    width: 65px;
+    background-color: #396cf00d ;
+    color: #396cf0;
+    border-radius: 10px;
+}
+
+.content .content_right{
+    margin-left: .5rem ;
+    flex: 1;
+}

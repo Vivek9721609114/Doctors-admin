@@ -1,0 +1,11 @@
+
+.dashboard_card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    display: flex;
+    padding: 12px 12px 0 12px;
+}

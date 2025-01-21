@@ -1,0 +1,83 @@
+.container{
+    padding: 12px;
+    background: #f7f7f7;;
+}
+.Doctors{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.appointment_container{
+    padding: 12px;
+    background: #f7f7f7;;
+}
+.title{
+    padding: 12px;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* flex-direction: column;
+    column-gap: 10px; */
+}
+
+.btn_left{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.btn span{
+    position: relative;
+}
+
+.btn span a{
+    text-decoration: none;
+    color: #000;
+}
+
+.btn_right{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 10px;
+
+}
+
+.btn_right a{
+    text-decoration: none;
+}
+
+.btn_right div:last-child{
+    padding: 10px 18px;
+    background: #396cf0;
+    color: #fff;
+    border-radius: 5px;
+    border: none !important;
+    cursor: pointer;
+}
+.btn_right div:first-child select{
+    padding: 6px 36px 6px 12px;
+}
+
+.greater{
+    transform: rotate(90deg) !important;
+    position: absolute;
+    left: 52px;
+    top: 0px;
+
+
+}
+
+
+
+
+
+
+
+
+

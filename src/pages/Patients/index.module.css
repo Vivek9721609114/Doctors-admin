@@ -1,0 +1,90 @@
+.appointment_table_row{
+    width: 100%;
+    display: flex;
+    margin: 0px -12px;
+}
+
+.table_content{
+    width: 100%;
+    flex: 0 0 auto;
+    margin-top: 1.5rem;
+    padding: 0 12px;
+    overflow: scroll;
+}
+
+.table table thead tr th{
+    min-width: 150px;
+    padding: 1rem;
+    text-align: start;
+    font-size: 14px;
+}
+.table table tbody tr td{
+    padding: 1rem;
+    text-align: start;
+    font-size: 14px;
+}
+
+.td_icon_cont{
+    display: flex;
+    align-items: center;
+}
+
+.td_icon_cont img{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px #3c485826 !important;
+}
+
+.td_icon_cont span{
+    margin-left: 8px !important;
+}
+
+.btn_icon{
+    display: flex;
+    width: 45px;
+    height: 45px;
+}
+
+
+.span_1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #396cf01a !important;
+    border: 1px solid #396cf01a !important;
+    box-shadow: 0 3px 5px 0 #396cf04d;
+    color: #396cf0 !important;
+}
+
+
+.span_2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #53c7971a !important;
+    border: 1px solid #53c7971a !important;
+    box-shadow: 0 3px 5px 0 #53c7974d;
+    color: #53c797 !important;
+}
+.span_3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f0735a1a !important;
+    border: 1px solid #f0735a1a !important;
+    box-shadow: 0 3px 5px 0 #f0735a4d;
+    color: #f0735a !important;
+}
