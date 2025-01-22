@@ -34,7 +34,13 @@ const Doctors = () => {
         </div>
         <div className={styles.Doctors}>
           {doctorList.map((it) => {
-            return <DoctorsCrad key={it.id} name={it.firstname} />;
+            return (
+              <DoctorsCrad
+                key={it.id}
+                name={it.firstname}
+                department={it.department}
+              />
+            );
           })}
         </div>
       </div>
