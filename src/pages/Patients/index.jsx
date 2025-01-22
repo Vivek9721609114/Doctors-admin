@@ -30,6 +30,9 @@ const Pataints = () => {
         console.log(err);
       });
   }, []);
+  const onHandleDelete = () => {
+    alert("hii");
+  };
 
   return (
     <>
@@ -88,7 +91,7 @@ const Pataints = () => {
                         </a>
                         <a>
                           <span className={styles.span_3}>
-                            <MdDelete />
+                            <MdDelete onClick={onHandleDelete} />
                           </span>
                         </a>
                       </td>

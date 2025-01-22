@@ -19,12 +19,12 @@ const AddDoctors = () => {
   };
 
   const [state, dispatch] = useReducer(reducer, {
-    firstname: "",
-    lastname: "",
+    doctorname: "",
+    experience: "1 years experienced",
     email: "",
-    departments: "",
+    departments: "Gynecologist",
     phone: "",
-    gender: "",
+    gender: "Male",
     bio: "",
     profileImage: "",
     date: new Date().toLocaleDateString(),
@@ -95,23 +95,33 @@ const AddDoctors = () => {
                   <div className={styles.form}>
                     <div className={styles.form_content}>
                       <div className={styles.input_column}>
-                        <label>First Name</label>
+                        <label>Doctor Name</label>
                         <input
                           onChange={onHandleChange}
-                          id="firstname"
+                          id="doctorname"
                           type="text"
-                          placeholder="First Name :"
+                          placeholder="Doctor Name :"
                         />
                       </div>
                       {/* input_column */}
                       <div className={styles.input_column}>
-                        <label>Last Name</label>
-                        <input
-                          onChange={onHandleChange}
-                          id="lastname"
-                          type="text"
-                          placeholder="Last Name :"
-                        />
+                        <label>Departments</label>
+                        <select
+                          onChnage={onHandleChange}
+                          name=""
+                          id="departments"
+                        >
+                          <option value="General physician">
+                            General physician
+                          </option>
+                          <option value="Gynecologist">Gynecologist</option>
+                          <option value="Dermatologist">Dermatologist</option>
+                          <option value="Pediatricians">Pediatricians</option>
+                          <option value="Neurologist">Neurologist</option>
+                          <option value="Gastroenterologist">
+                            Gastroenterologist
+                          </option>
+                        </select>
                       </div>
                       {/* input_column */}
                       <div className={styles.input_column}>
@@ -135,22 +145,35 @@ const AddDoctors = () => {
                       </div>
                       {/* input_column */}
                       <div className={styles.input_column}>
-                        <label>Departments</label>
-                        <input
+                        <label>Experience</label>
+                        <select
                           onChange={onHandleChange}
-                          id="departments"
-                          type="text"
-                          placeholder=""
-                        />
+                          name=""
+                          id="experience"
+                        >
+                          <option value="1">1 years experienced</option>
+                          <option value="">2 years experienced</option>
+                          <option value="">3 years experienced</option>
+                          <option value="">4 years experienced</option>
+                          <option value="">5 years experienced</option>
+                          <option value="">6 years experienced</option>
+                          <option value="">7 years experienced</option>
+                          <option value="">8 years experienced</option>
+                          <option value="">9 years experienced</option>
+                          <option value="">10 years experienced</option>
+                        </select>
                       </div>
                       {/* input_column */}
                       <div className={styles.input_column}>
                         <label>Gender</label>
-                        <input
+                        <select
                           onChange={onHandleChange}
+                          name="gender"
                           id="gender"
-                          type="text"
-                        />
+                        >
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select>
                       </div>
                       {/* input_column */}
                       <div
