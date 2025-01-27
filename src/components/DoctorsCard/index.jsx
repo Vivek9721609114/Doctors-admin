@@ -14,7 +14,7 @@ const DoctorsCrad = () => {
         </div>
         <div className={styles.text_content}>
           <Link>Dr. Calvin Carlo</Link>
-          <small>Eye Care</small>
+          <small>Gynacologist</small>
         </div>
       </div>
     </div>

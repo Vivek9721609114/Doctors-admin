@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SectionTitle from "../../shared/SectionTitle";
 import styles from "./index.module.css";
 import DoctorsCrad from "../../components/DoctorsCard";
 import { MdOutlineExpandLess } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { doctorList } from "../../data/doctorList";
+import axios from "axios";
 
 const Doctors = () => {
+  const [doctors, setDoctors] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://doctors-appointment-data-default-rtdb.firebaseio.com/doctor.json"
+      )
+      .then((res) => {
+        console.log(res);
+        const transformedData = [];
+
+        for (let doctors in res.data) {
+          transformedData.push(res.data[doctors]);
+        }
+
+        setDoctors(transformedData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(doctors);
   return (
     <>
       <div className={styles.container}>
@@ -33,11 +57,11 @@ const Doctors = () => {
           </div>
         </div>
         <div className={styles.Doctors}>
-          {doctorList.map((it) => {
+          {doctors.map((it) => {
             return (
               <DoctorsCrad
                 key={it.id}
-                name={it.firstname}
+                name={it.doctorname}
                 department={it.department}
               />
             );
