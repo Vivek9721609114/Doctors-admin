@@ -19,18 +19,16 @@ const Appointment = () => {
   const isModalName = useSelector((state) => state.ui.isModalName);
   const [appoinments, setAppoinments] = useState([]);
 
-  useEffect(() => {
+  const getdata = () => {
     axios
       .get(
         "https://doctors-appointment-data-default-rtdb.firebaseio.com/book.json"
       )
       .then((res) => {
-        console.log(res);
         const transformedData = [];
 
         for (let patient in res.data) {
-          transformedData.push(res.data[patient]);
-          console.log(patient);
+          transformedData.push({ id: patient, ...res.data[patient] });
         }
 
         setAppoinments(transformedData);
@@ -38,39 +36,35 @@ const Appointment = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  };
+  useEffect(() => {
+    getdata();
+  }, [appoinments]);
 
   const [id, setid] = useState("");
   const handleDelete = (ind) => {
-    axios
-      .get(
-        "https://doctors-appointment-data-default-rtdb.firebaseio.com/book.json"
-      )
-      .then((res) => {
-        for (let patient in res.data) {
-          res.data[patient].map((it) => {
-            return it.email == ind && setid(patient);
-          });
-        }
-      });
     const config = {
-      url: `https://doctors-appointment-data-default-rtdb.firebaseio.com/book/${id}.json`,
+      url: `https://doctors-appointment-data-default-rtdb.firebaseio.com/book/${ind}.json`,
       method: "DELETE",
     };
 
     axios(config)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
+        getdata();
       })
       .catch((error) => {
         console.log(error);
       });
 
-    console.log(ind);
+    // console.log(ind);
     // const deletefilter = ind.filter((it) => it.ind != ind.it);
     // console.log(deletefilter);
   };
 
+  const handleupdate = (id) => {
+    alert("hlo");
+  };
   return (
     <>
       {isModalName && (
@@ -152,7 +146,7 @@ const Appointment = () => {
                 <tbody>
                   {appoinments.map((it, ind) => {
                     return (
-                      <tr>
+                      <tr key={ind}>
                         <td>{ind + 1}</td>
                         <td>
                           <a href="">
@@ -185,13 +179,16 @@ const Appointment = () => {
                             </span>
                           </a>
                           <a>
-                            <span className={styles.span_2}>
+                            <span
+                              onClick={() => handleupdate(it.id)}
+                              className={styles.span_2}
+                            >
                               <BiCheck />
                             </span>
                           </a>
                           <a>
                             <span
-                              onClick={() => handleDelete(it.email)}
+                              onClick={() => handleDelete(it.id)}
                               className={styles.span_3}
                             >
                               <RxCross2 />
