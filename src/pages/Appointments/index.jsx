@@ -30,6 +30,7 @@ const Appointment = () => {
 
         for (let patient in res.data) {
           transformedData.push(res.data[patient]);
+          console.log(patient);
         }
 
         setAppoinments(transformedData);
@@ -38,6 +39,37 @@ const Appointment = () => {
         console.log(err);
       });
   }, []);
+
+  const [id, setid] = useState("");
+  const handleDelete = (ind) => {
+    axios
+      .get(
+        "https://doctors-appointment-data-default-rtdb.firebaseio.com/book.json"
+      )
+      .then((res) => {
+        for (let patient in res.data) {
+          res.data[patient].map((it) => {
+            return it.email == ind && setid(patient);
+          });
+        }
+      });
+    const config = {
+      url: `https://doctors-appointment-data-default-rtdb.firebaseio.com/book/${id}.json`,
+      method: "DELETE",
+    };
+
+    axios(config)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    console.log(ind);
+    // const deletefilter = ind.filter((it) => it.ind != ind.it);
+    // console.log(deletefilter);
+  };
 
   return (
     <>
@@ -108,6 +140,7 @@ const Appointment = () => {
                     <th style={{ minWidth: "160px" }}>Email</th>
                     <th style={{ minWidth: "150px" }}>Age</th>
                     <th style={{ minWidth: "150px" }}>Gender</th>
+                    <th style={{ minWidth: "150px" }}>Phone Number</th>
                     <th style={{ minWidth: "150px" }}>Department</th>
                     <th style={{ minWidth: "150px" }}>Date</th>
                     <th style={{ minWidth: "150px" }}>Time</th>
@@ -130,9 +163,10 @@ const Appointment = () => {
                           </a>
                         </td>
                         <td>{it.email}</td>
-                        <td>25</td>
-                        <td>Male</td>
-                        <td>{it.departments}</td>
+                        <td>{it.age}</td>
+                        <td>{it.gender}</td>
+                        <td>{it.phone}</td>
+                        <td>{it.department}</td>
                         <td>{it.date}</td>
                         <td>{it.time}</td>
                         <td>
@@ -156,7 +190,10 @@ const Appointment = () => {
                             </span>
                           </a>
                           <a>
-                            <span className={styles.span_3}>
+                            <span
+                              onClick={() => handleDelete(it.email)}
+                              className={styles.span_3}
+                            >
                               <RxCross2 />
                             </span>
                           </a>

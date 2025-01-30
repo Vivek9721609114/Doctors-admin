@@ -98,6 +98,15 @@
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     width: 100% !important;
 }
+.input_column select {
+    width: 100% !important;
+    height: 35px;
+    padding: .375rem .75rem;
+    border-radius: .375rem;
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    color: #212529;
+}
 
 .content .content_right{
     width: 33.333%;

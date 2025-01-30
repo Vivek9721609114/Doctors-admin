@@ -60,14 +60,6 @@ const Main = () => {
                 Add Doctors
               </Link>
             </li>
-            {/* <li className={styles.sidebar_dropdown}>
-              <Link to="/doctorsprofile">
-                <span>
-                  <FaUserDoctor />
-                </span>
-                Doctors Profile
-              </Link>
-            </li> */}
             <li className={styles.sidebar_dropdown}>
               <Link to="/pataints">
                 <span>
@@ -76,14 +68,6 @@ const Main = () => {
                 Pataints
               </Link>
             </li>
-            {/* <li className={styles.sidebar_dropdown}>
-              <Link to="/allpataints">
-                <span>
-                  <GrUserAdd />
-                </span>
-                All Pataints
-              </Link>
-            </li> */}
             <li className={styles.sidebar_dropdown}>
               <Link to="/addpataints">
                 <span>
@@ -92,14 +76,6 @@ const Main = () => {
                 Add Pataints
               </Link>
             </li>
-            {/* <li className={styles.sidebar_dropdown}>
-              <Link to="/pataintsprofile">
-                <span>
-                  <GrUserAdd />
-                </span>
-                Pataints Profile
-              </Link>
-            </li> */}
           </ul>
         </nav>
         <main className={styles.page_content}>

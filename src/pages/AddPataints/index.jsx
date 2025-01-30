@@ -5,6 +5,7 @@ import DoctorList from "../../components/DoctorList";
 import { doctorList } from "../../data/doctorList";
 import img from "../../assets/upload_area.png";
 import axios from "axios";
+
 const AddPataints = () => {
   const reducer = (state, action) => {
     switch (action.type) {
@@ -19,10 +20,10 @@ const AddPataints = () => {
   };
 
   const [state, dispatch] = useReducer(reducer, {
-    firstname: "",
-    lastname: "",
+    patientname: "",
+    doctorname: "",
     email: "",
-    departments: "",
+    departments: "General physician",
     phone: "",
     gender: "",
     bio: "",
@@ -93,74 +94,92 @@ const AddPataints = () => {
               </div>
               <div className={styles.card_bottom}>
                 <div className={styles.form}>
-                  <div className={styles.form_content}>
-                    <div className={styles.input_column}>
-                      <label>First Name</label>
-                      <input
-                        onChange={onHandleChange}
-                        type="text"
-                        placeholder="First Name :"
-                        id="firstname"
-                      />
+                  <form action="">
+                    <div className={styles.form_content}>
+                      <div className={styles.input_column}>
+                        <label>Patient Name</label>
+                        <input
+                          onChange={onHandleChange}
+                          type="text"
+                          placeholder="Patient Name :"
+                          id="patientname"
+                        />
+                      </div>
+                      {/* input_column */}
+                      <div className={styles.input_column}>
+                        <label>Doctor Name</label>
+                        <input
+                          onChange={onHandleChange}
+                          type="text"
+                          placeholder="Doctor Name :"
+                          id="doctorname"
+                        />
+                      </div>
+                      {/* input_column */}
+                      <div className={styles.input_column}>
+                        <label>Your Email</label>
+                        <input
+                          onChange={onHandleChange}
+                          type="text"
+                          placeholder="Your email :"
+                          id="email"
+                        />
+                      </div>
+                      {/* input_column */}
+                      <div className={styles.input_column}>
+                        <label>Phone no.</label>
+                        <input
+                          onChange={onHandleChange}
+                          type="text"
+                          placeholder="Phone no :"
+                          id="phone"
+                        />
+                        {state.phone.length > 0 &&
+                          state.phone.length !== 10 && (
+                            <p>
+                              !Please Enter A valid Phone Number (10 Digits)
+                            </p>
+                          )}
+                      </div>
+                      {/* input_column */}
+                      <div className={styles.input_column}>
+                        <label>Departments</label>
+                        <select
+                          onChnage={onHandleChange}
+                          name=""
+                          id="departments"
+                        >
+                          <option value="General physician">
+                            General physician
+                          </option>
+                          <option value="Gynecologist">Gynecologist</option>
+                          <option value="Dermatologist">Dermatologist</option>
+                          <option value="Pediatricians">Pediatricians</option>
+                          <option value="Neurologist">Neurologist</option>
+                          <option value="Gastroenterologist">
+                            Gastroenterologist
+                          </option>
+                        </select>
+                      </div>
+                      {/* input_column */}
+                      <div className={styles.input_column}>
+                        <label>Gender</label>
+                        <input
+                          onChange={onHandleChange}
+                          id="gender"
+                          type="text"
+                        />
+                      </div>
+                      {/* input_column */}
+                      <div
+                        style={{ width: "100%" }}
+                        className={styles.input_column}
+                      >
+                        <label>Your Bio Here</label>
+                        <input onChange={onHandleChange} id="bio" type="text" />
+                      </div>
                     </div>
-                    {/* input_column */}
-                    <div className={styles.input_column}>
-                      <label>Last Name</label>
-                      <input
-                        onChange={onHandleChange}
-                        type="text"
-                        placeholder="Last Name :"
-                        id="lastname"
-                      />
-                    </div>
-                    {/* input_column */}
-                    <div className={styles.input_column}>
-                      <label>Your Email</label>
-                      <input
-                        onChange={onHandleChange}
-                        type="text"
-                        placeholder="Your email :"
-                        id="email"
-                      />
-                    </div>
-                    {/* input_column */}
-                    <div className={styles.input_column}>
-                      <label>Phone no.</label>
-                      <input
-                        onChange={onHandleChange}
-                        type="text"
-                        placeholder="Phone no :"
-                        id="phone"
-                      />
-                    </div>
-                    {/* input_column */}
-                    <div className={styles.input_column}>
-                      <label>Departments</label>
-                      <input
-                        onChange={onHandleChange}
-                        type="text"
-                        placeholder=""
-                        id="departments"
-                      />
-                    </div>
-                    {/* input_column */}
-                    <div className={styles.input_column}>
-                      <label>Gender</label>
-                      <input
-                        onChange={onHandleChange}
-                        id="gender"
-                        type="text"
-                      />
-                    </div>
-                    {/* input_column */}
-                    <div
-                      style={{ width: "100%" }}
-                      className={styles.input_column}
-                    >
-                      <label>Your Bio Here</label>
-                      <input onChange={onHandleChange} id="bio" type="text" />
-                    </div>
-                  </div>
+                  </form>
                   <div className={styles.form_btn}>
                     <ToggleBtn onClick={onSaveData} name="Add Patients" />
                   </div>

@@ -151,16 +151,36 @@ const AddDoctors = () => {
                           name=""
                           id="experience"
                         >
-                          <option value="1">1 years experienced</option>
-                          <option value="">2 years experienced</option>
-                          <option value="">3 years experienced</option>
-                          <option value="">4 years experienced</option>
-                          <option value="">5 years experienced</option>
-                          <option value="">6 years experienced</option>
-                          <option value="">7 years experienced</option>
-                          <option value="">8 years experienced</option>
-                          <option value="">9 years experienced</option>
-                          <option value="">10 years experienced</option>
+                          <option value="1 years experienced">
+                            1 years experienced
+                          </option>
+                          <option value="2 years experienced">
+                            2 years experienced
+                          </option>
+                          <option value="3 years experienced">
+                            3 years experienced
+                          </option>
+                          <option value="4 years experienced">
+                            4 years experienced
+                          </option>
+                          <option value="5 years experienced">
+                            5 years experienced
+                          </option>
+                          <option value="6 years experienced">
+                            6 years experienced
+                          </option>
+                          <option value="7 years experienced">
+                            7 years experienced
+                          </option>
+                          <option value="8 years experienced">
+                            8 years experienced
+                          </option>
+                          <option value="9 years experienced">
+                            9 years experienced
+                          </option>
+                          <option value="10 years experienced">
+                            10 years experienced
+                          </option>
                         </select>
                       </div>
                       {/* input_column */}

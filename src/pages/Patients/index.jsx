@@ -43,7 +43,7 @@ const Pataints = () => {
               <thead>
                 <tr>
                   <th style={{ minWidth: "50px" }}>#</th>
-                  <th style={{ minWidth: "170px" }}>Name</th>
+                  <th style={{ minWidth: "170px" }}>Doctor Name</th>
 
                   <th style={{ minWidth: "150px" }}>Gender</th>
                   <th style={{ minWidth: "150px" }}>Patient Name</th>
@@ -64,15 +64,13 @@ const Pataints = () => {
                         <a href="">
                           <div className={styles.td_icon_cont}>
                             <img src={table_icon} alt="icon" />
-                            <span>Howord Tanner</span>
+                            <span>{it.doctorname}</span>
                           </div>
                         </a>
                       </td>
 
                       <td>{it.gender}</td>
-                      <td>
-                        {it.firstname} {it.lastname}
-                      </td>
+                      <td>{it.patientname}</td>
                       <td>{it.phone}</td>
                       <td>{it.departments}</td>
                       <td>{it.date}</td>
