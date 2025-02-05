@@ -11,7 +11,7 @@ import axios from "axios";
 const Pataints = () => {
   const [patients, setPatients] = useState([]);
 
-  useEffect(() => {
+  const getData = () => {
     axios
       .get(
         "https://doctors-appointment-data-default-rtdb.firebaseio.com/patient.json"
@@ -21,7 +21,7 @@ const Pataints = () => {
         const transformedData = [];
 
         for (let patient in res.data) {
-          transformedData.push(res.data[patient]);
+          transformedData.push({ id: patient, ...res.data[patient] });
         }
 
         setPatients(transformedData);
@@ -29,9 +29,25 @@ const Pataints = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-  const onHandleDelete = () => {
-    alert("hii");
+  };
+  useEffect(() => {
+    getData();
+  }, [patients]);
+  const handleDelete = (ind) => {
+    const config = {
+      url: `https://doctors-appointment-data-default-rtdb.firebaseio.com/patient/${ind}.json`,
+      method: "DELETE",
+    };
+    console.log("hlo");
+
+    axios(config)
+      .then((res) => {
+        //console.log(res);
+        getData();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -89,7 +105,7 @@ const Pataints = () => {
                         </a>
                         <a>
                           <span className={styles.span_3}>
-                            <MdDelete onClick={onHandleDelete} />
+                            <MdDelete onClick={() => handleDelete(it.id)} />
                           </span>
                         </a>
                       </td>

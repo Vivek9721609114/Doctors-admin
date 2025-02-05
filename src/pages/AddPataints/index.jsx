@@ -130,7 +130,7 @@ const AddPataints = () => {
                         <label>Phone no.</label>
                         <input
                           onChange={onHandleChange}
-                          type="text"
+                          type="number"
                           placeholder="Phone no :"
                           id="phone"
                         />
