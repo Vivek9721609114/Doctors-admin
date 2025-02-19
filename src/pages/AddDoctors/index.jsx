@@ -5,6 +5,7 @@ import DoctorList from "../../components/DoctorList";
 import { doctorList } from "../../data/doctorList";
 import img from "../../assets/upload_area.png";
 import axios from "axios";
+import { toast } from "react-toastify";
 const AddDoctors = () => {
   const reducer = (state, action) => {
     switch (action.type) {
@@ -40,19 +41,30 @@ const AddDoctors = () => {
   };
 
   const onSaveData = () => {
-    const config = {
-      url: "https://doctors-appointment-data-default-rtdb.firebaseio.com/doctor.json",
-      method: "post",
-      data: state,
-    };
+    if (state.doctorname === "" || state.doctorname.trim().lenght < 3) {
+      toast.error("Please Name Enter Max-3 alphabts");
+    } else if (state.email === "") {
+      toast.error("Please Enter  Email");
+    } else if (!state.email.includes("@") || !state.email.includes(".")) {
+      toast.error("please Enter Valid Email");
+    } else if (state.phone.lenght !== 10) {
+      toast.error("Please Enter number (10 digits)");
+    } else {
+      const config = {
+        url: "https://doctors-appointment-data-default-rtdb.firebaseio.com/doctor.json",
+        method: "post",
+        data: state,
+      };
 
-    axios(config)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      axios(config)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      toast.success("Add Doctor successfully");
+    }
   };
   return (
     <>

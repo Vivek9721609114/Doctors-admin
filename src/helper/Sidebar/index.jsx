@@ -16,6 +16,7 @@ import DoctorProfile from "../../pages/DoctorProfile";
 import AddPataints from "../../pages/AddPataints";
 import AllPataints from "../../pages/AllPataints";
 import PataintsProfile from "../../pages/PataintsProfile";
+import { ToastContainer } from "react-toastify";
 
 const Main = () => {
   return (
@@ -118,6 +119,7 @@ const Main = () => {
             ></Route>
           </Routes>
         </main>
+        <ToastContainer />
       </div>
     </>
   );

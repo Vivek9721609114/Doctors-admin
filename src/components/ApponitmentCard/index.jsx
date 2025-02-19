@@ -6,7 +6,8 @@ import { uiActions } from "../../store/ui";
 import InputField from "../../ui/widgets/InputField";
 import Button from "../../ui/widgets/Button";
 import axios from "axios";
-const ApponitmentCard = () => {
+import { toast } from "react-toastify";
+const ApponitmentCard = ({}) => {
   const Disptch = useDispatch();
 
   const isModalName = useSelector((state) => state.ui.isModalName);
@@ -59,6 +60,9 @@ const ApponitmentCard = () => {
       .catch((err) => {
         console.log(err);
       });
+
+    toast.success("Book An Appointment successfully");
+    Disptch(uiActions.onModalOpen({ name: "" }));
   };
 
   return (

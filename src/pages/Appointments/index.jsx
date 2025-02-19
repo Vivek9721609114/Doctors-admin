@@ -13,6 +13,7 @@ import Modal from "../../modal";
 import axios from "axios";
 
 import ApponitmentCard from "../../components/ApponitmentCard";
+import { toast } from "react-toastify";
 const Appointment = () => {
   const Dispatch = useDispatch();
 
@@ -56,6 +57,8 @@ const Appointment = () => {
       .catch((error) => {
         console.log(error);
       });
+
+    toast.error("Apponinment deleted successfully");
 
     // console.log(ind);
     // const deletefilter = ind.filter((it) => it.ind != ind.it);

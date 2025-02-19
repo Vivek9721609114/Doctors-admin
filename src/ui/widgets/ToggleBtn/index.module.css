@@ -9,3 +9,8 @@
     border: #396cf0;
     width: 100%;
 }
+
+.button button:active{
+    background: white;
+    color: #396cf0;
+}

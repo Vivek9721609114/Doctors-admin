@@ -5,6 +5,7 @@ import DoctorList from "../../components/DoctorList";
 import { doctorList } from "../../data/doctorList";
 import img from "../../assets/upload_area.png";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const AddPataints = () => {
   const reducer = (state, action) => {
@@ -54,6 +55,7 @@ const AddPataints = () => {
       .catch((err) => {
         console.log(err);
       });
+    toast.success("Add Pataints successfully");
   };
 
   return (

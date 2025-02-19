@@ -7,6 +7,7 @@ import { RxCross2 } from "react-icons/rx";
 import { FaPencilAlt } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Pataints = () => {
   const [patients, setPatients] = useState([]);
@@ -48,6 +49,8 @@ const Pataints = () => {
       .catch((error) => {
         console.log(error);
       });
+
+    toast.error("Pataints deleted successfully");
   };
 
   return (

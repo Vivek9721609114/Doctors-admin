@@ -1,6 +1,10 @@
 .search_bar{
     margin-left: 0.5rem;
 }
+.search_bar:active{
+    background: white;
+        color: #396cf0;
+}
 
 
 
